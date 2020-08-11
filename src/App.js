@@ -1,9 +1,7 @@
 import React, { useState } from 'react'
 import './App.css'
-import {
-	selectDevelopersWithFavorite,
-	devFavResources,
-} from './store/developers/selectors'
+import { selectDevelopersWithFavorite } from './store/developers/selectors'
+import { devFavResources } from './store/selectors'
 import { useSelector } from 'react-redux'
 
 const selectDevelopers = (reduxState) => {
