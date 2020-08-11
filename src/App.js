@@ -26,7 +26,14 @@ export default function App() {
 
 	return (
 		<div className='App'>
-			<p>
+			<br />
+			<p
+				style={{
+					margin: '-1rem 0 2rem 0',
+					padding: '0.5rem',
+					background: '#eee',
+				}}
+			>
 				Welcome home, <strong>{loggedinUser.name}</strong>!
 			</p>
 			<h1>Web development resources</h1>
