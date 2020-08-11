@@ -13,7 +13,7 @@ export default function ResourcesSection() {
 				{resources.map((resource) => {
 					return (
 						<div className='resource' key={resource.id}>
-							<div classname='title'>
+							<div className='title'>
 								<strong>{resource.name}</strong> (<em>{resource.type}</em>)
 								&mdash; Find out more <a href={resource.url}>here</a>.
 							</div>
