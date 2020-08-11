@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './App.css'
 import { selectDevelopersWithFavorite } from './store/developers/selectors'
-import { devFavResources } from './store/selectors'
+import { devFavResources, selectLoggedinUser } from './store/selectors'
 import { useSelector } from 'react-redux'
 
 const selectDevelopers = (reduxState) => {
@@ -13,6 +13,7 @@ const selectResources = (reduxState) => {
 }
 
 export default function App() {
+	const loggedinUser = useSelector(selectLoggedinUser)
 	const developers = useSelector(selectDevelopers)
 	const resources = useSelector(selectResources)
 	const [favoriteId, setFavoriteId] = useState(1)
@@ -25,6 +26,9 @@ export default function App() {
 
 	return (
 		<div className='App'>
+			<p>
+				Welcome home, <strong>{loggedinUser.name}</strong>!
+			</p>
 			<h1>Web development resources</h1>
 			<br />
 			<h2>{developers.length}</h2> Developers
