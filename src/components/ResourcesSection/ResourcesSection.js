@@ -1,6 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { selectResources } from '../store/resources/selectors'
+import { selectResources } from '../../store/resources/selectors'
+
+import './ResourcesSection.css'
 
 export default function ResourcesSection() {
 	const resources = useSelector(selectResources)
@@ -12,8 +14,19 @@ export default function ResourcesSection() {
 					return (
 						<div className='resource' key={resource.id}>
 							<div classname='title'>
-								<strong>{resource.name}</strong>
+								<strong>{resource.name}</strong> (<em>{resource.type}</em>)
+								&mdash; Find out more <a href={resource.url}>here</a>.
 							</div>
+							<div className='meta'>
+								{resource.tags.map((tag, i) => {
+									return (
+										<span key={i} className='tag'>
+											{tag}
+										</span>
+									)
+								})}
+							</div>
+							<br />
 						</div>
 					)
 				})}

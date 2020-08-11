@@ -4,7 +4,7 @@ import './App.css'
 import { selectDevelopersWithFavorite } from './store/developers/selectors'
 import { devFavResources, selectLoggedinUser } from './store/selectors'
 import { useSelector } from 'react-redux'
-import ResourcesSection from './components/ResourcesSection'
+import ResourcesSection from './components/ResourcesSection/ResourcesSection'
 
 const selectDevelopers = (reduxState) => {
 	return reduxState.developers
