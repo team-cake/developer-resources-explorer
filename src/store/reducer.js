@@ -1,12 +1,11 @@
-const initialState = {
-	// TODO
-	hello: 'world',
-}
+import { combineReducers } from 'redux'
 
-export default function reducer(state = initialState, action) {
-	switch (action.type) {
-		default: {
-			return state
-		}
-	}
-}
+import userSliceReducer from './user/reducer'
+import resourcesSliceReducer from './resources/reducer'
+import developersSliceReducer from './developers/reducer'
+
+export default combineReducers({
+	user: userSliceReducer,
+	resources: resourcesSliceReducer,
+	developers: developersSliceReducer,
+})
