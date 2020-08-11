@@ -5,14 +5,11 @@ import { selectDevelopersWithFavorite } from './store/developers/selectors'
 import { devFavResources, selectLoggedinUser } from './store/selectors'
 import { useSelector } from 'react-redux'
 import ResourcesSection from './components/ResourcesSection/ResourcesSection'
+import AddResourceForm from './components/AddResourceForm/AddResourceForm'
 
 const selectDevelopers = (reduxState) => {
 	return reduxState.developers
 }
-
-// const selectResources = (reduxState) => {
-// 	return reduxState.resources
-// }
 
 export default function App() {
 	const loggedinUser = useSelector(selectLoggedinUser)
@@ -94,6 +91,7 @@ export default function App() {
 			</div>
 			<br />
 			<ResourcesSection />
+			<AddResourceForm />
 		</div>
 	)
 }
