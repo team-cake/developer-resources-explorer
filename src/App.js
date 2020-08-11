@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './App.css'
-// import { selectResources } from './store/resources/selectors'
+import { selectResources } from './store/resources/selectors'
 import { selectDevelopersWithFavorite } from './store/developers/selectors'
 import { devFavResources, selectLoggedinUser } from './store/selectors'
 import { useSelector } from 'react-redux'
@@ -10,9 +10,9 @@ const selectDevelopers = (reduxState) => {
 	return reduxState.developers
 }
 
-const selectResources = (reduxState) => {
-	return reduxState.resources
-}
+// const selectResources = (reduxState) => {
+// 	return reduxState.resources
+// }
 
 export default function App() {
 	const loggedinUser = useSelector(selectLoggedinUser)
