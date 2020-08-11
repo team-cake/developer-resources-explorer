@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import './App.css'
+// import { selectResources } from './store/resources/selectors'
 import { selectDevelopersWithFavorite } from './store/developers/selectors'
 import { devFavResources, selectLoggedinUser } from './store/selectors'
 import { useSelector } from 'react-redux'
+import ResourcesSection from './components/ResourcesSection'
 
 const selectDevelopers = (reduxState) => {
 	return reduxState.developers
@@ -90,6 +92,8 @@ export default function App() {
 					})}
 				</ul>
 			</div>
+			<br />
+			<ResourcesSection />
 		</div>
 	)
 }
