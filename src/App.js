@@ -23,7 +23,6 @@ export default function App() {
 	const developersWithThisFavorite = useSelector(
 		selectDevelopersWithFavorite(favoriteId)
 	)
-
 	const favResources = useSelector(devFavResources(developerId))
 
 	return (
