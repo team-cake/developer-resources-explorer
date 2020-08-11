@@ -24,7 +24,7 @@ export default function App() {
 	const favResources = useSelector(devFavResources(developerId))
 
 	return (
-		<div className='App'>
+		<div className='App' align='left'>
 			<br />
 			<p
 				style={{
