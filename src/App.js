@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './App.css'
+import { selectDevelopersWithFavorite } from './store/developers/selectors'
 import { useSelector } from 'react-redux'
 
 const selectDevelopers = (reduxState) => {
@@ -10,14 +11,15 @@ const selectResources = (reduxState) => {
 	return reduxState.resources
 }
 
-function App() {
+export default function App() {
 	const developers = useSelector(selectDevelopers)
 	const resources = useSelector(selectResources)
-	const [favId, setFavId] = useState(1)
+	const [favoriteId, setFavoriteId] = useState(1)
 
-	const developersFav = useSelector((state) => {
-		return state.developers.filter((dev) => dev.favorites.includes(favId))
-	})
+	const developersWithThisFavorite = useSelector(
+		selectDevelopersWithFavorite(favoriteId)
+	)
+
 	return (
 		<div className='App'>
 			<h1>Web development resources</h1>
@@ -29,8 +31,8 @@ function App() {
 			<h2>
 				Who likes{' '}
 				<select
-					value={favId}
-					onChange={(e) => setFavId(parseInt(e.target.value))}
+					value={favoriteId}
+					onChange={(e) => setFavoriteId(parseInt(e.target.value))}
 				>
 					{resources.map((resource) => {
 						return (
@@ -43,12 +45,10 @@ function App() {
 				?
 			</h2>
 			<ul>
-				{developersFav.map((dev) => {
+				{developersWithThisFavorite.map((dev) => {
 					return <li key={dev.id}>{dev.name}</li>
 				})}
 			</ul>
 		</div>
 	)
 }
-
-export default App
